@@ -18,16 +18,18 @@
 char* filename = new char[64];
 char* line = new char[64];
 
+using namespace std;
+
 bool license_check(char* license)
 {
     
-    std::ifstream file;
-    file.open(filename, std::ios_base::in);
+    ifstream file;
+    file.open(filename, ios_base::in);
     if(file.is_open())
     {
         while(file.getline(line, 1024))
         {
-            if((strcmp(line,license))==0)
+            if(strcmp(line,license)==0)
             {
                 return true;
             } 
@@ -36,7 +38,7 @@ bool license_check(char* license)
         file.close();
     }
     else
-        std::cout<<"failed to open file"<<std::endl;
+        cout<<"failed to open file"<<endl;
 
     return false;
 }
@@ -49,17 +51,17 @@ int main() {
     const char* message="Reported as stolen";
     const char* message1="Not in the database";
      
-   std::cout<<"----SERVER RUNNING----"<<std::endl;
+   cout<<"----SERVER RUNNING----"<<endl;
    
-   std::cout<<"Enter today's stolen cars DB name:" <<std::endl;
-   std::cin>>filename;
+   cout<<"Enter today's stolen cars DB name:" <<endl;
+   cin>>filename;
        
-   std::cout<<"enter server port number" <<std::endl;
-   std::cin>>p;
+   cout<<"Enter server port number" <<endl;
+   cin>>p;
    if (p <1024)
    {
-       std:: cout<<"The port number is not valid, please enter again"<<std::endl;
-       std::cin>>p;
+        cout<<"The port number is not valid, please Enter again"<<endl;
+       cin>>p;
    }
    
     // Creating socket file descriptor
@@ -102,18 +104,18 @@ int main() {
             sendto(sockfd, (const char *)message, strlen(message), 
             MSG_CONFIRM, (const struct sockaddr *) &cliaddr,
             len);
-            std::cout<<"Message sent to client"<<std::endl;
+            cout<<"Message sent to client"<<endl;
         }
-        if((strcmp(buffer,"killsvc"))==0) 
+        else if(strcmp(buffer,"killsvc")==0) 
         {
-            return 0; //exit?
+            break;
         }
         else
         {
             sendto(sockfd, (const char *)message1, strlen(message1), 
             MSG_CONFIRM, (const struct sockaddr *) &cliaddr,
             len); 
-            std::cout<<"Message sent to client"<<std::endl;
+            cout<<"Message sent to client"<<endl;
         }
         
     }

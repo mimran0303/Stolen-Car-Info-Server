@@ -8,8 +8,8 @@
 #include <cstring>
    
 #define MAXLINE 1024
+using namespace std;
 
-   
 // Driver code
 int main() {
     int sockfd;
@@ -19,21 +19,21 @@ int main() {
     char* hostname = new char[64];
     char* lisence = new char[64];
 
-    std::cout<<"----CLIENT RUNNING----"<<std::endl;
-   std::cout<<"enter hostname" <<std::endl; 
-   std::cin>>hostname;
-   if ((strcmp(hostname,"localhost"))==1)
-   {
-       std:: cout<<"The hostname is not correct, please enter again"<<std::endl;
-       std::cin>>hostname;
-   }
+    cout<<"----CLIENT RUNNING----"<<endl;
+   cout<<"Enter server name or ip address" <<endl; 
+   cin>>hostname;
+   //if (strcmp(hostname,"localhost")!=0)
+   //{
+        //cout<<"The hostname is not correct, please Enter again"<<endl;
+      // cin>>hostname;
+   //}
    
-   std::cout<<"enter port number" <<std::endl;
-   std::cin>>p;
+   cout<<"Enter port number" <<endl;
+   cin>>p;
    if ( p < 1024)
    {
-       std:: cout<<"The port number is not valid, please enter again"<<std::endl;
-       std::cin>>p;
+        cout<<"The port number is not valid, please Enter again"<<endl;
+       cin>>p;
    }
    
     // Creating socket file descriptor
@@ -55,19 +55,19 @@ int main() {
      
     while(true)
     {  
-        std:: cout<<"enter lisence plate number"<<std::endl;
-        std::cin>>lisence;
+         cout<<"Enter lisence plate number"<<endl;
+        cin>>lisence;
     
         sendto(sockfd, (char*)lisence, strlen(lisence),
          MSG_CONFIRM, (const struct sockaddr *) &servaddr, 
                 sizeof(servaddr));
-        std::cout<<"lisence sent."<<std::endl;
+        cout<<"lisence sent."<<endl;
                
         n = recvfrom(sockfd, (char *)buffer, MAXLINE, 
                     MSG_WAITALL, (struct sockaddr *) &servaddr,
                     &len);
         buffer[n] = '\0';
-        std::cout<<"Server :"<<buffer<<std::endl;
+        cout<<"Server :"<<buffer<<endl;
     }
    
     close(sockfd);
