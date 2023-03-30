@@ -14,7 +14,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=FatimaImran
-Date                   :=26/03/23
+Date                   :=30/03/23
 CodeLitePath           :=/home/fatimaimran/.codelite
 LinkerName             :=/usr/bin/g++-11
 SharedObjectLinkerName :=/usr/bin/g++-11 -shared -fPIC
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=../build-$(ConfigurationName)/client/main.cpp$(ObjectSuffix) 
+Objects0=../build-$(ConfigurationName)/client/client.cpp$(ObjectSuffix) 
 
 
 
@@ -91,13 +91,13 @@ PreBuild:
 ##
 ## Objects
 ##
-../build-$(ConfigurationName)/client/main.cpp$(ObjectSuffix): main.cpp ../build-$(ConfigurationName)/client/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/fatimaimran/OS2/client/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
-../build-$(ConfigurationName)/client/main.cpp$(DependSuffix): main.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/client/main.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/client/main.cpp$(DependSuffix) -MM main.cpp
+../build-$(ConfigurationName)/client/client.cpp$(ObjectSuffix): client.cpp ../build-$(ConfigurationName)/client/client.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/fatimaimran/OS2/client/client.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/client.cpp$(ObjectSuffix) $(IncludePath)
+../build-$(ConfigurationName)/client/client.cpp$(DependSuffix): client.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/client/client.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/client/client.cpp$(DependSuffix) -MM client.cpp
 
-../build-$(ConfigurationName)/client/main.cpp$(PreprocessSuffix): main.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/client/main.cpp$(PreprocessSuffix) main.cpp
+../build-$(ConfigurationName)/client/client.cpp$(PreprocessSuffix): client.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/client/client.cpp$(PreprocessSuffix) client.cpp
 
 
 -include ../build-$(ConfigurationName)/client//*$(DependSuffix)

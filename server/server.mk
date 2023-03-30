@@ -14,7 +14,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=FatimaImran
-Date                   :=26/03/23
+Date                   :=30/03/23
 CodeLitePath           :=/home/fatimaimran/.codelite
 LinkerName             :=/usr/bin/g++-11
 SharedObjectLinkerName :=/usr/bin/g++-11 -shared -fPIC
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=../build-$(ConfigurationName)/server/main.cpp$(ObjectSuffix) 
+Objects0=../build-$(ConfigurationName)/server/server.cpp$(ObjectSuffix) 
 
 
 
@@ -91,13 +91,13 @@ PreBuild:
 ##
 ## Objects
 ##
-../build-$(ConfigurationName)/server/main.cpp$(ObjectSuffix): main.cpp ../build-$(ConfigurationName)/server/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/fatimaimran/OS2/server/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
-../build-$(ConfigurationName)/server/main.cpp$(DependSuffix): main.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/server/main.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/server/main.cpp$(DependSuffix) -MM main.cpp
+../build-$(ConfigurationName)/server/server.cpp$(ObjectSuffix): server.cpp ../build-$(ConfigurationName)/server/server.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/fatimaimran/OS2/server/server.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/server.cpp$(ObjectSuffix) $(IncludePath)
+../build-$(ConfigurationName)/server/server.cpp$(DependSuffix): server.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT../build-$(ConfigurationName)/server/server.cpp$(ObjectSuffix) -MF../build-$(ConfigurationName)/server/server.cpp$(DependSuffix) -MM server.cpp
 
-../build-$(ConfigurationName)/server/main.cpp$(PreprocessSuffix): main.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/server/main.cpp$(PreprocessSuffix) main.cpp
+../build-$(ConfigurationName)/server/server.cpp$(PreprocessSuffix): server.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) ../build-$(ConfigurationName)/server/server.cpp$(PreprocessSuffix) server.cpp
 
 
 -include ../build-$(ConfigurationName)/server//*$(DependSuffix)
